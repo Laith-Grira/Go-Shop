@@ -29,7 +29,7 @@ func (rcp *receipt) addItem(name string, price float64) {
 // format the receipt
 func (rcp *receipt) format() string {
 	fs := "The GO-SHOP - Receipt breakdown:\n"
-	fs += fmt.Sprintf("---------------------------------------\n")
+	fs += "---------------------------------------\n"
 	fs += fmt.Sprintf("%20v\n", "ITEMS")
 
 	var subtotal float64 = 0
@@ -43,26 +43,24 @@ func (rcp *receipt) format() string {
 	// Total amount after tax
 	total := subtotal * 1.13
 
-	fs += fmt.Sprintf("---------------------------------------\n")
+	fs += "---------------------------------------\n"
 
 	// add subtotal
 	fs += fmt.Sprintf("%-25v $%0.2f\n", "Subtotal:", subtotal)
 
 	// add tax
-	fs += fmt.Sprintf("%-25v $%v\n", "tax:", "13%")
+	fs += fmt.Sprintf("%-25v %v\n", "tax:", "13%")
 
 	// add total
 	fs += fmt.Sprintf("%-25v $%0.2f\n", "total:", total)
-
-	fs += fmt.Sprintf("---------------------------------------\n")
+	fs += "---------------------------------------\n"
 
 	// add cash
 	fs += fmt.Sprintf("%-25v $%v\n", "cash:", rcp.cash)
 
 	// add change
 	fs += fmt.Sprintf("%-25v $%0.2f\n", "change:", rcp.cash-total)
-
-	fs += fmt.Sprintf("---------------------------------------\n")
+	fs += "---------------------------------------\n"
 
 	return fs
 }
@@ -70,6 +68,11 @@ func (rcp *receipt) format() string {
 // update cash
 func (rcp *receipt) updateCash(cash float64) {
 	(*rcp).cash = cash
+}
+
+// view the receipt
+func (rcp *receipt) view() {
+	fmt.Println(rcp.format())
 }
 
 // save receipt

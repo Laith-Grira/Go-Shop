@@ -72,6 +72,11 @@ func (rcp *receipt) updateCash(cash float64) {
 	(*rcp).cash = cash
 }
 
+// view the receipt
+func (rcp *receipt) view() {
+	fmt.Println(rcp.format())
+}
+
 // save receipt
 func (rcp *receipt) save() {
 	data := []byte(rcp.format())

@@ -39,6 +39,15 @@ func TestNewReceipt(t *testing.T) {
 				cash:       0.0,
 			},
 		},
+		{
+			name:  "Test with a client full name",
+			input: "Susan Flyn",
+			expected: receipt{
+				clientName: "Susan Flyn",
+				items:      map[string]float64{},
+				cash:       0.0,
+			},
+		},
 	}
 
 	for _, tc := range tests {

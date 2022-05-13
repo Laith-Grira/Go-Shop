@@ -9,7 +9,7 @@ The **Go-Shop CLI** is a CLI program used by cashiers in the Go-Shop car parts t
 - Calculate the total of purchase, and the change to return
 - View and save a receipt 
 
-When the cashier finishes the process, a receipt with the client's name is saved in a `.txt` file under the `/receipt` folder.
+When the cashier finishes the process, a receipt with the client's name is saved in a `.txt` file under the `/receipts` folder.
 
 ## Worklflow
 ![](/docs/diagrams/UML%20Diagram.png)

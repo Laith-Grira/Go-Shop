@@ -29,7 +29,7 @@ func createReceipt() receipt {
 func promptOptions(rcp receipt) {
 	reader := bufio.NewReader(os.Stdin)
 
-	opt, _ := getInput("Choose option (a - add item, s - save receipt, p - pay receipt): ", reader)
+	opt, _ := getInput("Choose option (a - add item, s - save & exit, p - pay receipt, v - vew receipt): ", reader)
 
 	switch opt {
 	case "a":
@@ -55,12 +55,16 @@ func promptOptions(rcp receipt) {
 		}
 
 		rcp.updateCash(cash)
-
 		fmt.Println("cash has been updated to", cash)
 		promptOptions(rcp)
+
 	case "s":
 		rcp.save()
 		fmt.Println("receipt has been saved as", rcp.clientName)
+
+	case "v":
+		rcp.view()
+		promptOptions(rcp)
 	default:
 		fmt.Println("That was not a valid option...")
 		promptOptions(rcp)
